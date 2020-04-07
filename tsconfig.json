@@ -10,7 +10,13 @@
     "allowJs": true,
     "lib": ["dom", "es2015", "es2017"],
     "noImplicitReturns": true,
-    "esModuleInterop": true
+    "esModuleInterop": true,
+    "baseUrl": "src",
+    "paths": {
+      "@components/*": ["components/*"],
+      "@images/*": ["images/*"],
+      "@pages/*": ["pages/*"],
+  }
   },
   "exclude": [
     "./node_modules",
