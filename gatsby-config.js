@@ -5,8 +5,27 @@ module.exports = {
     author: "@davidanitoiu",
   },
   plugins: [
-    `gatsby-plugin-react-helmet`,
     `gatsby-plugin-typescript`,
+    `gatsby-plugin-react-helmet`,
+    `gatsby-plugin-material-ui`,
+    `gatsby-theme-material-ui`,
+    {
+      resolve: `gatsby-plugin-webfonts`,
+      options: {
+        fonts: {
+          google: [
+            {
+              family: "Titillium Web",
+              variants: ["400", "600"],
+            },
+            {
+              family: "Electrolize",
+              variants: ["400"],
+            },
+          ],
+        },
+      },
+    },
     {
       resolve: `gatsby-source-filesystem`,
       options: {
