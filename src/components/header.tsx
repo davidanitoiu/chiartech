@@ -1,4 +1,3 @@
-import "./header.css"
 import { Link } from "gatsby"
 import React from "react"
 import { AppBar, Typography, Container } from "@material-ui/core"
