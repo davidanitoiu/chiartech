@@ -1,57 +1,16 @@
+import "./header.css"
 import { Link } from "gatsby"
 import React from "react"
 import { AppBar, Typography, Container } from "@material-ui/core"
-import { makeStyles } from "@material-ui/styles"
-import Color from "color"
-
-const useStyles = makeStyles(theme => ({
-  root: {
-    flexGrow: 1,
-  },
-  appBar: {
-    background: `${Color("#000000").alpha(0.65)}`,
-    boxShadow: "none",
-    borderBottom: `4px solid ${theme.palette.primary.main}`,
-    paddingTop: theme.spacing(2),
-    paddingBottom: theme.spacing(2)
-  },
-  title: {
-    flex: 3,
-    color: theme.palette.primary.main,
-    textShadow: `0 0 4px ${Color(theme.palette.primary.main).alpha(0.65)}`,
-  },
-  header: {
-    display: "flex",
-    justifyContent: "center",
-    alignItems: "center",
-    flexDirection: "row",
-  },
-  menu: {
-    flex: 1,
-    display: "flex",
-    justifyContent: "space-evenly",
-    textAlign: "center",
-  },
-  menuLink: {
-    flex: 1,
-    textDecoration: "none",
-    color: theme.palette.primary.main,
-    justifyContent: "space-evenly",
-    textShadow: `0 0 4px ${Color(theme.palette.primary.main).alpha(0.65)}`,
-    transition: "all 0.3s ease-out",
-    "&:hover": {
-      color: theme.palette.text.primary,
-      textShadow: `0 0 4px ${Color(theme.palette.text.primary).alpha(0.65)}`,
-    },
-  },
-}))
+import useStyles from './header.styles';
 
 const Header = ({ siteTitle = "" }) => {
   const classes = useStyles()
 
-  return (
+  return (  
     <AppBar position="static" className={classes.appBar}>
       <Container className={classes.header}>
+        <div className={classes.ldsDualRing}/>
         <Typography variant={"h3"} component={"h1"} className={classes.title}>
           {siteTitle}
         </Typography>
@@ -62,7 +21,7 @@ const Header = ({ siteTitle = "" }) => {
             className={classes.menuLink}
             to="/page-2/"
           >
-            Impressum
+            About
           </Typography>
           <Typography
             variant={"subtitle1"}
