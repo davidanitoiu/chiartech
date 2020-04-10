@@ -12,8 +12,14 @@ export default makeStyles<Theme>(theme => ({
       paddingTop: theme.spacing(2),
       paddingBottom: theme.spacing(2),
     },
-    title: {
+    titleLink: {
       flex: 3,
+      display: 'flex',
+      flexDirection: 'row',
+      textDecoration: 'none',
+      alignItems: 'center'
+    },
+    title: {
       fontFamily: 'Electrolize',
       color: theme.palette.primary.main,
       textShadow: `0 0 4px ${Color(theme.palette.primary.main).alpha(0.65)}`,

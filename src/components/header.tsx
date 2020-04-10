@@ -2,18 +2,20 @@ import "./header.css"
 import { Link } from "gatsby"
 import React from "react"
 import { AppBar, Typography, Container } from "@material-ui/core"
-import useStyles from './header.styles';
+import useStyles from "./header.styles"
 
 const Header = ({ siteTitle = "" }) => {
   const classes = useStyles()
 
-  return (  
+  return (
     <AppBar position="static" className={classes.appBar}>
       <Container className={classes.header}>
-        <div className={classes.ldsDualRing}/>
-        <Typography variant={"h3"} component={"h1"} className={classes.title}>
-          {siteTitle}
-        </Typography>
+        <Link to="/" className={classes.titleLink}>
+          <div className={classes.ldsDualRing} />
+          <Typography variant={"h3"} component={"h1"} className={classes.title}>
+            {siteTitle}
+          </Typography>
+        </Link>
         <nav className={classes.menu}>
           <Typography
             variant={"subtitle1"}
