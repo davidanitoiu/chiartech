@@ -2,6 +2,7 @@ import { Link } from "gatsby"
 import React from "react"
 import { AppBar, Typography, Container } from "@material-ui/core"
 import useStyles from "./header.styles"
+import { Logo } from "./logo/logo"
 
 const Header = ({ siteTitle = "" }) => {
   const classes = useStyles()
@@ -10,7 +11,7 @@ const Header = ({ siteTitle = "" }) => {
     <AppBar position="static" className={classes.appBar}>
       <Container className={classes.header}>
         <Link to="/" className={classes.titleLink}>
-          <div className={classes.ldsDualRing} />
+          <Logo/>
           <Typography variant={"h3"} component={"h1"} className={classes.title}>
             {siteTitle}
           </Typography>
