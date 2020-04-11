@@ -37,7 +37,7 @@ Implemented according to this [guide](https://www.gatsbyjs.org/packages/gatsby-t
 
 ## Custom font with icomoon for logo SVG usage in header
 
-Header over to [icomoon.io](https://icomoon.io).
+Header over to [icomoon.io](https://icomoon.io/app/#/select).
 
 1. Create new empty set
 1. Upload your svg or select icons you intend to use
