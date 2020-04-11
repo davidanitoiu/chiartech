@@ -20,7 +20,7 @@ const Header = ({ siteTitle = "" }) => {
             variant={"subtitle1"}
             component={Link}
             className={classes.menuLink}
-            to="/page-2/"
+            to="/404/"
           >
             About
           </Typography>

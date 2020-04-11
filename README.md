@@ -32,6 +32,9 @@ Provided with gatsby-plugin-root-import & tsconfig.json
     }
     ```
 
+## Material UI Theme support
+Implemented according to this [guide](https://www.gatsbyjs.org/packages/gatsby-theme-material-ui/?=material)
+
 ## Custom font with icomoon for logo SVG usage in header
 
 Header over to [icomoon.io](https://icomoon.io).

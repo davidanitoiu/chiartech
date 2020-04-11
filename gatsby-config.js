@@ -54,6 +54,12 @@ module.exports = {
         ["@components"]: `${__dirname}/src/components`,
         ["@assets"]: `${__dirname}/src/assets`
       }
+    },
+    {
+      resolve: `gatsby-plugin-layout`,
+      options: {
+        component: require.resolve(`${__dirname}/src/layouts/layout.tsx`),
+      },
     }
   ],
 }
