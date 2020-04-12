@@ -14,9 +14,11 @@
     "baseUrl": "src",
     "paths": {
       "@components/*": ["components/*"],
-      "@images/*": ["images/*"],
+      "@images/*": ["assets/images/*"],
+      "@assets/*": ["assets/*"],
       "@pages/*": ["pages/*"],
       "@utils/*": ["utils/*"],
+      "@hooks/*": ["utils/hooks/*"],
   }
   },
   "exclude": [

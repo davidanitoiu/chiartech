@@ -9,9 +9,8 @@ import CssBaseline from "@material-ui/core/CssBaseline"
 import React, { ReactNode } from "react"
 import Header from "@components/header"
 import useSiteMetadata from "@utils/hooks/useSiteMetadata"
-import Background from "@assets/images/flight-through-deep-space-nebula-footage-077483924_prevstill.webp"
+import Background from "@images/flight-through-deep-space-nebula-footage-077483924_prevstill.webp"
 import { makeStyles } from "@material-ui/styles"
-import { Container } from "@material-ui/core"
 
 const useStyles = makeStyles(theme => ({
   root: {

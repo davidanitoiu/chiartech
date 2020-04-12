@@ -49,7 +49,9 @@ module.exports = {
         ["@pages"]: `${__dirname}/src/pages`,
         ["@components"]: `${__dirname}/src/components`,
         ["@assets"]: `${__dirname}/src/assets`,
-        ["@utils"]: `${__dirname}/src/utils`
+        ["@images"]: `${__dirname}/src/assets/images`,
+        ["@utils"]: `${__dirname}/src/utils`,
+        ["@hooks"]: `${__dirname}/src//utils/hooks`
       }
     },
     {

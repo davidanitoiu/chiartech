@@ -12,7 +12,7 @@ import { Button } from "gatsby-theme-material-ui"
 import { Logo } from "@components/logo/logo"
 import useSiteMetadata from "@utils/hooks/useSiteMetadata"
 import Color from "color"
-import Background from "@assets/images/flight-through-deep-space-nebula-footage-077483924_prevstill.webp"
+import Background from "@images/flight-through-deep-space-nebula-footage-077483924_prevstill.webp"
 
 const useStyles = makeStyles(theme => ({
   root: {
