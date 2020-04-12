@@ -3,6 +3,7 @@ import useStyles from "./logo.styles";
 
 interface Props {
     size?: number;
+    borderWidth?: number;
 }
 
 export const Logo = (props:Props) => {
