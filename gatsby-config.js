@@ -1,7 +1,7 @@
 module.exports = {
   siteMetadata: {
     title: "CHIARTECH",
-    description: "IT Witchcraft Solutions",
+    description: "Divert auxilliary power to IT Awesomeness",
     author: "@davidanitoiu",
   },
   plugins: [
@@ -46,10 +46,10 @@ module.exports = {
     {
       resolve: `gatsby-plugin-root-import`,
       options: {
-        ["@src"]: `${__dirname}/src`,
         ["@pages"]: `${__dirname}/src/pages`,
         ["@components"]: `${__dirname}/src/components`,
-        ["@assets"]: `${__dirname}/src/assets`
+        ["@assets"]: `${__dirname}/src/assets`,
+        ["@utils"]: `${__dirname}/src/utils`
       }
     },
     {
