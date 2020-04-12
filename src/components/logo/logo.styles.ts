@@ -4,10 +4,12 @@ import Color from "color"
 
 const DEFAULT = {
   SIZE: 64,
+  BORDER_WIDTH: 5
 }
 
 type StyleProps = {
-  size?: number
+  size?: number,
+  borderWidth?: number
 }
 
 export default makeStyles<Theme>(theme => ({
@@ -36,13 +38,13 @@ export default makeStyles<Theme>(theme => ({
       position: "absolute",
       width: ({ size = DEFAULT.SIZE }: StyleProps) => size,
       content: `""`,
-      color: "#009688",
+      color: theme.palette.secondary.main,
       fontSize: ({ size = DEFAULT.SIZE }: StyleProps) => `${size / 2}px`,
       fontFamily: "icomoon",
       lineHeight: ({ size = DEFAULT.SIZE }: StyleProps) => `${size}px`,
       margin: 8,
       textAlign: "center",
-      textShadow: `0 0 4px ${Color(theme.palette.primary.main).alpha(0.65)}`,
+      textShadow: `0 0 4px ${Color(theme.palette.secondary.main).alpha(0.65)}`,
     },
     "&:after": {
       position: "absolute",
@@ -53,9 +55,10 @@ export default makeStyles<Theme>(theme => ({
       lineHeight: 48,
       margin: 8,
       borderRadius: "50%",
-      border: "5px solid",
-      borderColor: `${theme.palette.primary.main} transparent ${theme.palette.primary.main} transparent`,
-      animation: `$ldsDualRing 7s linear infinite`,
+      borderWidth: ({ borderWidth = DEFAULT.BORDER_WIDTH }: StyleProps) => borderWidth,
+      borderStyle: "solid",
+      borderColor: `${theme.palette.secondary.main} transparent ${theme.palette.secondary.main} transparent`,
+      animation: `$ldsDualRing 30s linear infinite`,
     },
   },
 }))
