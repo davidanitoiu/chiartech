@@ -1,16 +1,23 @@
-import { createMuiTheme } from "@material-ui/core";
-import {lightBlue, teal} from '@material-ui/core/colors';
+import { createMuiTheme } from '@material-ui/core';
+import {cyan, lightBlue} from '@material-ui/core/colors';
 
 const theme = createMuiTheme({
     palette: {
         type: 'dark',
-        primary: teal,
-        secondary: lightBlue
+        primary: lightBlue,
+        secondary: cyan
     },
     typography: {
+        h1: {
+            fontFamily: [
+                'Electrolize',
+                'Roboto', 'Helvetica', 'Arial',
+                'sans-serif'
+            ].join(',')
+        },
         fontFamily: [
             'Titillium Web',
-            "Roboto", "Helvetica", "Arial",
+            'Roboto', 'Helvetica', 'Arial',
             'sans-serif'
         ].join(','),
     },
