@@ -16,6 +16,7 @@
       "@components/*": ["components/*"],
       "@images/*": ["images/*"],
       "@pages/*": ["pages/*"],
+      "@utils/*": ["utils/*"],
   }
   },
   "exclude": [
