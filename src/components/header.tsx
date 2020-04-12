@@ -8,6 +8,7 @@ const Header = ({ siteTitle = "" }) => {
   const classes = useStyles()
 
   return (
+    <header>
     <AppBar position="static" className={classes.appBar}>
       <Container className={classes.header}>
         <Link to="/" className={classes.titleLink}>
@@ -36,6 +37,7 @@ const Header = ({ siteTitle = "" }) => {
         </nav>
       </Container>
     </AppBar>
+    </header>
   )
 }
 
