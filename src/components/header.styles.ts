@@ -8,7 +8,7 @@ export default makeStyles<Theme>(theme => ({
   appBar: {
     background: `rgba(0,0,0,.65)`,
     boxShadow: "none",
-    borderBottom: `4px solid ${theme.palette.primary.main}`,
+    borderBottom: `4px solid ${theme.palette.secondary.main}`,
     paddingTop: theme.spacing(2),
     paddingBottom: theme.spacing(2),
   },
@@ -20,9 +20,9 @@ export default makeStyles<Theme>(theme => ({
     alignItems: 'center',
   },
   title: {
-    fontFamily: 'Electrolize',
-    color: theme.palette.primary.main,
-    textShadow: `0 0 4px ${Color(theme.palette.primary.main).alpha(0.65)}`,
+    color: theme.palette.secondary.main,
+    fontWeight: 'bold',
+    textShadow: `0 0 4px ${Color(theme.palette.secondary.main).alpha(0.65)}`,
   },
   header: {
     display: "flex",
@@ -39,9 +39,9 @@ export default makeStyles<Theme>(theme => ({
   menuLink: {
     flex: 1,
     textDecoration: "none",
-    color: theme.palette.primary.main,
+    color: theme.palette.secondary.main,
     justifyContent: "space-evenly",
-    textShadow: `0 0 4px ${Color(theme.palette.primary.main).alpha(0.65)}`,
+    textShadow: `0 0 4px ${Color(theme.palette.secondary.main).alpha(0.65)}`,
     transition: "all 0.3s ease-out",
     "&:hover": {
       color: theme.palette.text.primary,
