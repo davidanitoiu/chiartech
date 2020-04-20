@@ -32,6 +32,14 @@ module.exports = {
         path: `${__dirname}/src/assets/images`,
       },
     },
+    {
+      resolve: `gatsby-source-filesystem`,
+      options: {
+        name: `docs`,
+        path: `${__dirname}/src/assets/docs`,
+      },
+    },
+    `gatsby-transformer-remark`,
     `gatsby-transformer-sharp`,
     `gatsby-plugin-sharp`,
     {
@@ -51,7 +59,7 @@ module.exports = {
         ["@assets"]: `${__dirname}/src/assets`,
         ["@images"]: `${__dirname}/src/assets/images`,
         ["@utils"]: `${__dirname}/src/utils`,
-        ["@hooks"]: `${__dirname}/src//utils/hooks`
+        ["@hooks"]: `${__dirname}/src/utils/hooks`
       }
     },
     {
