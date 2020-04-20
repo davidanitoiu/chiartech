@@ -9,9 +9,9 @@ import {
 } from "@material-ui/core"
 import { Button } from "gatsby-theme-material-ui"
 import { Logo } from "@components/logo/logo"
-import useSiteMetadata from "@utils/hooks/useSiteMetadata"
+import useSiteMetadata from "@utils/hooks/static-queries/useSiteMetadata"
 import Color from "color"
-import useBackground from "@utils/hooks/useStaticBackground"
+import useStaticBackground from "@utils/hooks/static-queries/useStaticBackground"
 
 interface StyleProps {
   fileName: string
@@ -40,7 +40,7 @@ const useStyles = makeStyles(theme => ({
 }))
 
 const IndexPage = () => {
-  const backgroundSrc = useBackground();
+  const backgroundSrc = useStaticBackground();
   const classes = useStyles({ fileName: backgroundSrc })
   const siteMetadata = useSiteMetadata()
 

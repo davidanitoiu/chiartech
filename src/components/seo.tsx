@@ -8,7 +8,7 @@
 import React from "react"
 import PropTypes from "prop-types"
 import Helmet from "react-helmet"
-import useSiteMetadata from '@utils/hooks/useSiteMetadata';
+import useSiteMetadata from '@utils/hooks/static-queries/useSiteMetadata';
 
 function SEO({ description, lang, meta, title }) {
   const siteMetadata = useSiteMetadata();
