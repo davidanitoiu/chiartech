@@ -11,18 +11,16 @@ const useStyles = makeStyles({
   },
 })
 
-const SecondPage = () => {
+const Docs = () => {
   const classes = useStyles()
   return (
     <>
-      <SEO title="Page two" />
+      <SEO title="Docs" />
       <Container className={classes.root}>
-        <h1>Hi from the second page</h1>
-        <p>Welcome to page 2</p>
-        <Link to="/">Go back to the homepage</Link>
+        <h1>Welcome to the docs</h1>
       </Container>
     </>
   )
 }
 
-export default SecondPage
+export default Docs
