@@ -6,7 +6,7 @@ export default makeStyles<Theme>(theme => ({
     flexGrow: 1,
   },
   appBar: {
-    background: `rgba(2,17,20,0.65)`,
+    background: `${Color(theme.palette.secondary.main).darken(0.95).alpha(0.65)}`,
     boxShadow: "none",
     borderBottom: `4px solid ${theme.palette.secondary.main}`,
     paddingTop: theme.spacing(2),
