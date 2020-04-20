@@ -5,12 +5,12 @@ import useStyles from "./header.styles"
 import { Logo } from "./logo/logo"
 import usePageLinks from "@utils/hooks/static-queries/usePageLinks"
 
-const Header = ({ siteTitle = "" }) => {
+const Header = ({ siteTitle = "", ...props }) => {
   const classes = useStyles()
   const pagelinks = usePageLinks()
 
   return (
-    <header>
+    <header {...props}>
       <AppBar position="static" className={classes.appBar}>
         <Container className={classes.header}>
           <Link to="/" className={classes.titleLink}>

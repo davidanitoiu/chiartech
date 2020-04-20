@@ -26,8 +26,13 @@ const useStyles = makeStyles(theme => ({
     flexDirection: 'column',
     justifyContent: 'space-between'
   },
+  header: {
+    flex: 1
+  },
+  main: {
+    flex: 10
+  },
   footer:{
-
   }
 }))
 
@@ -43,8 +48,8 @@ const Default = ({ children }: Children) => {
   return (
     <div className={classes.root}>
       <CssBaseline />
-      <Header siteTitle={title} />
-      <main>{children}</main>
+      <Header className={classes.header} siteTitle={title} />
+      <main className={classes.main}>{children}</main>
       <footer className={classes.footer}>
         © {new Date().getFullYear()}, Built with
         {` `}
