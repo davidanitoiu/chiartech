@@ -1,6 +1,5 @@
 import "@assets/fonts/fonts.css"
 import React from "react"
-import { Link } from "gatsby"
 import SEO from "@components/seo"
 import {
   Typography,
@@ -12,11 +11,16 @@ import { Button } from "gatsby-theme-material-ui"
 import { Logo } from "@components/logo/logo"
 import useSiteMetadata from "@utils/hooks/useSiteMetadata"
 import Color from "color"
-import Background from "@images/flight-through-deep-space-nebula-footage-077483924_prevstill.webp"
+import useBackground from "@utils/hooks/useStaticBackground"
+
+interface StyleProps {
+  fileName: string
+}
 
 const useStyles = makeStyles(theme => ({
   root: {
-    backgroundImage: `linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),url(${Background})`,
+    backgroundImage: ({ fileName }: StyleProps) =>
+      `linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),url(${fileName})`,
   },
   container: {
     display: "flex",
@@ -36,7 +40,8 @@ const useStyles = makeStyles(theme => ({
 }))
 
 const IndexPage = () => {
-  const classes = useStyles()
+  const backgroundSrc = useBackground();
+  const classes = useStyles({ fileName: backgroundSrc })
   const siteMetadata = useSiteMetadata()
 
   return (
@@ -54,7 +59,11 @@ const IndexPage = () => {
         >
           {siteMetadata.description}
         </Typography>
-        <ButtonGroup color="secondary" fullWidth={true} aria-label="navigation button group">
+        <ButtonGroup
+          color="secondary"
+          fullWidth={true}
+          aria-label="navigation button group"
+        >
           <Button to="/page-2">About</Button>
           <Button to="/page-2">Awesome Stuff</Button>
           <Button to="/404">Contact</Button>
