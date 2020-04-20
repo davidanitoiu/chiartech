@@ -12,6 +12,7 @@ import { Logo } from "@components/logo/logo"
 import useSiteMetadata from "@utils/hooks/static-queries/useSiteMetadata"
 import Color from "color"
 import useStaticBackground from "@utils/hooks/static-queries/useStaticBackground"
+import usePageLinks from "@utils/hooks/static-queries/usePageLinks"
 
 interface StyleProps {
   fileName: string
@@ -37,12 +38,16 @@ const useStyles = makeStyles(theme => ({
     color: theme.palette.primary.main,
     marginBottom: 16,
   },
+  pagelink: {
+    textTransform: "capitalize",
+  },
 }))
 
 const IndexPage = () => {
-  const backgroundSrc = useStaticBackground();
+  const backgroundSrc = useStaticBackground()
   const classes = useStyles({ fileName: backgroundSrc })
   const siteMetadata = useSiteMetadata()
+  const pagelinks = usePageLinks()
 
   return (
     <div className={classes.root}>
@@ -64,9 +69,11 @@ const IndexPage = () => {
           fullWidth={true}
           aria-label="navigation button group"
         >
-          <Button to="/page-2">About</Button>
-          <Button to="/page-2">Awesome Stuff</Button>
-          <Button to="/404">Contact</Button>
+          {pagelinks.map(pagelink => (
+            <Button className={classes.pagelink} to={pagelink.path}>
+              {pagelink.title}
+            </Button>
+          ))}
         </ButtonGroup>
       </Container>
     </div>

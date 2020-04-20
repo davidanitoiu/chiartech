@@ -8,17 +8,27 @@
 import CssBaseline from "@material-ui/core/CssBaseline"
 import React, { ReactNode } from "react"
 import Header from "@components/header"
-import useSiteMetadata from "@utils/hooks/useSiteMetadata"
-import Background from "@images/flight-through-deep-space-nebula-footage-077483924_prevstill.webp"
+import useSiteMetadata from "@utils/hooks/static-queries/useSiteMetadata"
+import useStaticBackground from "@hooks/static-queries/useStaticBackground"
 import { makeStyles } from "@material-ui/styles"
+
+interface StyleProps {
+  fileName: string
+}
 
 const useStyles = makeStyles(theme => ({
   root: {
-    backgroundImage: `linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),url(${Background})`,
+    backgroundImage: ({ fileName }: StyleProps) =>
+      `linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),url(${fileName})`,
     margin: `0 auto`,
-    maxWidth: 960,
-    padding: `0 1.0875rem 1.45rem`,
+    minHeight: `100vh`,
+    display: 'flex',
+    flexDirection: 'column',
+    justifyContent: 'space-between'
   },
+  footer:{
+
+  }
 }))
 
 interface Children {
@@ -26,20 +36,21 @@ interface Children {
 }
 
 const Default = ({ children }: Children) => {
+  const backgroundSrc = useStaticBackground()
   const { title } = useSiteMetadata()
-  const classes = useStyles()
+  const classes = useStyles({ fileName: backgroundSrc })
 
   return (
-    <>
+    <div className={classes.root}>
       <CssBaseline />
       <Header siteTitle={title} />
       <main>{children}</main>
-      <footer>
+      <footer className={classes.footer}>
         © {new Date().getFullYear()}, Built with
         {` `}
         <a href="https://www.gatsbyjs.org">Gatsby</a>
       </footer>
-    </>
+    </div>
   )
 }
 

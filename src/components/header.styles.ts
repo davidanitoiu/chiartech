@@ -6,7 +6,7 @@ export default makeStyles<Theme>(theme => ({
     flexGrow: 1,
   },
   appBar: {
-    background: `rgba(0,0,0,.65)`,
+    background: `rgba(2,17,20,0.65)`,
     boxShadow: "none",
     borderBottom: `4px solid ${theme.palette.secondary.main}`,
     paddingTop: theme.spacing(2),
@@ -39,6 +39,7 @@ export default makeStyles<Theme>(theme => ({
   menuLink: {
     flex: 1,
     textDecoration: "none",
+    textTransform: 'capitalize',
     color: theme.palette.secondary.main,
     justifyContent: "space-evenly",
     textShadow: `0 0 4px ${Color(theme.palette.secondary.main).alpha(0.65)}`,

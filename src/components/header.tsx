@@ -3,9 +3,11 @@ import React from "react"
 import { AppBar, Typography, Container } from "@material-ui/core"
 import useStyles from "./header.styles"
 import { Logo } from "./logo/logo"
+import usePageLinks from "@utils/hooks/static-queries/usePageLinks"
 
 const Header = ({ siteTitle = "" }) => {
   const classes = useStyles()
+  const pagelinks = usePageLinks()
 
   return (
     <header>
@@ -22,22 +24,14 @@ const Header = ({ siteTitle = "" }) => {
             </Typography>
           </Link>
           <nav className={classes.menu}>
-            <Typography
-              variant={"h6"}
-              component={Link}
-              className={classes.menuLink}
-              to="/404/"
-            >
-              About
-            </Typography>
-            <Typography
-              variant={"h6"}
-              component={Link}
-              className={classes.menuLink}
-              to="/page-2/"
-            >
-              Contact
-            </Typography>
+            {pagelinks.map(pagelink => (
+              <Typography
+                variant={"h6"}
+                component={Link}
+                className={classes.menuLink}
+                to={pagelink.path}
+              >{pagelink.title}</Typography>
+            ))}
           </nav>
         </Container>
       </AppBar>
