@@ -131,7 +131,7 @@ You may use this with page links, but the same technique will work for blog post
 1. Set up a [query](src/utils/hooks/static-queries/usePageLinks.ts) for the site pages
 1. Filter out the system pages, such as '404' and '/'
 1. Return an object of title & path, to separate the lable from the href.
-   * Remove special characters such as '-' and '/' from the title property
+   - Remove special characters such as '-' and '/' from the title property
 1. Capitalize the title in it's [usage](src/components/header.styles.ts)
 
 ```javascript
