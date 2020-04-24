@@ -3,6 +3,14 @@ module.exports = {
     title: "CHIARTECH",
     description: "Divert auxilliary power to IT Awesomeness",
     author: "@davidanitoiu",
+    pageLinks: [{
+      title: "Docs",
+      path: "/docs"
+    },
+    {
+      title: "Playground",
+      path: "/playground"
+    }]
   },
   plugins: [
     `gatsby-plugin-typescript`,
