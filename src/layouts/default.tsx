@@ -22,18 +22,24 @@ const useStyles = makeStyles(theme => ({
       `linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),url(${fileName})`,
     margin: `0 auto`,
     minHeight: `100vh`,
-    display: 'flex',
-    flexDirection: 'column',
-    justifyContent: 'space-between'
+    display: "flex",
+    flexDirection: "column",
+    justifyContent: "space-between",
+    position: 'absolute',
+    top: 0,
+    left: 0,
+    right: 0,
+    bottom: 0
   },
   header: {
-    flex: 1
+    flex: 1,
   },
   main: {
-    flex: 10
+    padding: 10,
+    flex: 10,
+    overflow: "hidden",
   },
-  footer:{
-  }
+  footer: {},
 }))
 
 interface Children {
