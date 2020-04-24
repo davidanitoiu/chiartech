@@ -54,24 +54,27 @@ const projects = [
   {
     title: "Interactive Flowchart",
     description: "An implementation of an interactive flow chart with Redux",
+    target:"/playground/pipeline"
   },
   {
     title: "Date formatter",
     description: "A tool that returns a dateformat based on the entered date",
+    target:"/playground/dateformatter"
   },
   {
     title: "Project Euler",
     description: "Various project euler problems including their test cases",
+    target:"/playground/projecteuler"
   },
   {
     title: "Misc",
     description: "Tiny pet programs, inspired by various coders around the web",
+    target:"/playground/misc"
   },
 ]
 
 const Playground = () => {
   const classes = useStyles()
-  const handleClick = () => navigate('/404/');
 
   return (
     <>
@@ -82,7 +85,7 @@ const Playground = () => {
             <Card 
             variant={"outlined"}
              className={classes.card}
-             onClick={handleClick}
+             onClick={() => navigate(project.target)}
              >
               <CardHeader
                 title={project.title}
