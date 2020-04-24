@@ -6,12 +6,23 @@
  */
 
 import React from "react"
-import PropTypes from "prop-types"
 import Helmet from "react-helmet"
-import useSiteMetadata from '@utils/hooks/static-queries/useSiteMetadata';
+import useSiteMetadata from "@utils/hooks/static-queries/useSiteMetadata"
 
-function SEO({ description, lang, meta, title }) {
-  const siteMetadata = useSiteMetadata();
+interface Meta {
+  content: string
+  name?: string
+  property?: string
+}
+interface SEO {
+  title: string
+  description?: string
+  lang?: string
+  meta?: Array<Meta>
+}
+
+function SEO({ title, description, lang, meta = [] }: SEO) {
+  const siteMetadata = useSiteMetadata()
 
   const metaDescription = description || siteMetadata.description
 
@@ -55,22 +66,10 @@ function SEO({ description, lang, meta, title }) {
           name: `twitter:description`,
           content: metaDescription,
         },
-      ].concat(meta)}
+        ...meta
+      ]}
     />
   )
-}
-
-SEO.defaultProps = {
-  lang: `en`,
-  meta: [],
-  description: ``,
-}
-
-SEO.propTypes = {
-  description: PropTypes.string,
-  lang: PropTypes.string,
-  meta: PropTypes.arrayOf(PropTypes.object),
-  title: PropTypes.string.isRequired,
 }
 
 export default SEO
