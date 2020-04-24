@@ -19,11 +19,11 @@ const useStyles = makeStyles(theme => ({
     borderStyle: 'inset',
     borderWidth: 20,
     overflowY: "scroll",
-    color: `${Color(theme.palette.secondary.dark).desaturate(0.35)}`,
+    color: `${Color(theme.palette.secondary.main).desaturate(0.35)}`,
     scrollbarWidth: 'thin',
     scrollbarColor: `${theme.palette.primary.main} ${theme.palette.action.disabledBackground}`,
     "& > h1, h2,h3, h4, h5, h6, a": {
-      color: theme.palette.secondary.light,
+      color: theme.palette.secondary.main,
     },
     "& a": {
       fontWeight: 'bold',
