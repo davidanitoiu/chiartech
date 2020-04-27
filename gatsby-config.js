@@ -4,8 +4,8 @@ module.exports = {
     description: "Divert auxilliary power to IT Awesomeness",
     author: "@davidanitoiu",
     pageLinks: [{
-      title: "How To",
-      path: "/howto"
+      title: "Docs",
+      path: "/docs"
     },
     {
       title: "Playground",
