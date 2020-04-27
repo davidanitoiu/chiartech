@@ -4,9 +4,9 @@ import React from "react"
 import { MarkdownDoc } from "@utils/types/markdown"
 import useStyles from "./markdown.styles"
 
-const Markdown = ({data,title}: MarkdownDoc) => {
+const Markdown = ({data}: MarkdownDoc) => {
   const classes = useStyles()
-  const { markdownRemark: {html} } = data 
+  const {html, frontmatter: {title}} = data.markdownRemark
 
   return (
     <>
