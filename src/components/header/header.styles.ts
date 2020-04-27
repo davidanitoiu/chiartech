@@ -21,6 +21,7 @@ export default makeStyles<Theme>(theme => ({
     outline: 'none!important'
   },
   title: {
+    fontFamily: "Electrolize",
     color: theme.palette.secondary.main,
     textShadow: `0 0 4px ${Color(theme.palette.secondary.main).alpha(0.65)}`,
   },
