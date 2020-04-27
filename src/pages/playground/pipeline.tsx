@@ -1,107 +1,34 @@
-import React, { useState } from "react"
-import {
-  actions,
-  FlowChart,
-  LinkDefault,
-  ILinkDefaultProps,
-  ILinkBaseInput,
-  INodeInnerDefaultProps,
-} from "@mrblenny/react-flow-chart"
+import { FlowChart } from "@mrblenny/react-flow-chart"
+import * as actions from "@mrblenny/react-flow-chart/src/container/actions"
+import { cloneDeep, mapValues } from "lodash"
+import React, { Component } from "react"
+import PipelineNodeInner from "./pipeline-components/PipelineNodeInner"
+import chartSimple from "./pipelineChart"
+import { validateLink } from "./utils/validateLink"
 
-function Pipeline() {
-  const chartSimple = {
-    offset: {
-      x: 0,
-      y: 0,
-    },
-    nodes: {
-      node1: {
-        id: "node1",
-        position: {
-          x: 200,
-          y: 100,
-        },
-        ports: {
-          port1: {
-            id: "port1",
-            type: "left",
-          },
-          port2: {
-            id: "port2",
-            type: "right",
-          },
-        },
-        properties: {
-          title: "DEV",
-        },
-      },
-      node2: {
-        id: "node2",
-        position: {
-          x: 500,
-          y: 100,
-        },
-        ports: {
-          port1: {
-            id: "port1",
-            type: "left",
-          },
-          port2: {
-            id: "port2",
-            type: "right",
-          },
-        },
-        properties: {
-          title: "TUD",
-        },
-      },
-    },
-    links: {
-      link1: {
-        id: "link1",
-        from: {
-          nodeId: "node1",
-          portId: "port2",
-        },
-        to: {
-          nodeId: "node2",
-          portId: "port1",
-        },
-      },
-    },
-    selected: {},
-    hovered: {},
-  }
+class Pipeline extends Component {
+  state = cloneDeep(chartSimple)
 
-  console.log({ actions })
-
-  const NodeInnerCustom = ({ node }: INodeInnerDefaultProps) => {
-    const {title} = node.properties
-
-    return (
-      <div className={"environmentCard"}>
-        <p>{title}</p>
-      </div>
-    )
-  }
-
-  const handleLinkClick = (e: ILinkBaseInput) => console.log({ e })
-  const LinkCustom = ({ ...props }: ILinkDefaultProps) => (
-    <div className={"environmentCard-link"}>
-      <LinkDefault {...props} onLinkClick={handleLinkClick} />
-    </div>
-  )
+  render () {
+    const chart = this.state
+    const stateActions = mapValues(actions, (func) =>
+      (...args:any) => this.setState(func(...args))) as typeof actions
 
   return (
-    <FlowChart
-      chart={chartSimple}
-      callbacks={actions}
-      Components={{
-        NodeInner: NodeInnerCustom,
-        Link: LinkCustom,
-      }}
-    />
+    <>
+      <FlowChart
+        chart={chart}
+        callbacks={stateActions}
+        Components={{
+          NodeInner: PipelineNodeInner,
+        }}
+        config={{
+          validateLink,
+        }}
+      />
+    </>
   )
+      }
 }
 
 export default Pipeline
