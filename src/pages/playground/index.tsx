@@ -18,7 +18,7 @@ const useStyles = makeStyles(theme => ({
     rowGap: `${theme.spacing(5)}px`,
   },
   cardTitle: {
-      color: theme.palette.secondary.main,
+    color: theme.palette.secondary.main,
   },
   cardSubheader: {
     color: `${Color(theme.palette.secondary.main).desaturate(0.35)}`,
@@ -54,22 +54,22 @@ const projects = [
   {
     title: "Interactive Flowchart",
     description: "An implementation of an interactive flow chart with Redux",
-    target:"/playground/pipeline"
+    target: "/playground/pipeline",
   },
   {
     title: "Date formatter",
     description: "A tool that returns a dateformat based on the entered date",
-    target:"/playground/dateformatter"
+    target: "/playground/dateformatter",
   },
   {
     title: "Project Euler",
     description: "Various project euler problems including their test cases",
-    target:"/playground/projecteuler"
+    target: "/playground/projecteuler",
   },
   {
     title: "Misc",
     description: "Tiny pet programs, inspired by various coders around the web",
-    target:"/playground/misc"
+    target: "/playground/misc",
   },
 ]
 
@@ -81,17 +81,18 @@ const Playground = () => {
       <SEO title="Playground" />
       <Container className={classes.root}>
         <div className={classes.projects}>
-          {projects.map(project => (
-            <Card 
-            variant={"outlined"}
-             className={classes.card}
-             onClick={() => navigate(project.target)}
-             >
+          {projects.map((project, i) => (
+            <Card
+              key={i}
+              variant={"outlined"}
+              className={classes.card}
+              onClick={() => navigate(project.target)}
+            >
               <CardHeader
                 title={project.title}
-                titleTypographyProps={{className:classes.cardTitle}}
+                titleTypographyProps={{ className: classes.cardTitle }}
                 subheader={project.description}
-                subheaderTypographyProps={{className:classes.cardSubheader}}
+                subheaderTypographyProps={{ className: classes.cardSubheader }}
               />
             </Card>
           ))}
