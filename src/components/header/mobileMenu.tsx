@@ -10,6 +10,7 @@ import Color from "color"
 import { navigate } from "gatsby"
 import React from "react"
 import MenuIcon from '@material-ui/icons/Menu';
+import { Pagelink } from "@utils/types/pagelink"
 
 const useStyles = makeStyles<Theme>(theme => ({
   mobileMenu: {
@@ -29,7 +30,11 @@ const useStyles = makeStyles<Theme>(theme => ({
   }
 }))
 
-const MobileMenu = ({ links }) => {
+interface IMobileMenu {
+    links: Array<Pagelink>
+}
+
+const MobileMenu = ({ links }:IMobileMenu) => {
   const classes = useStyles()
   const mobileMenuId = "menu-mobile"
   const [

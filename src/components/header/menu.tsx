@@ -3,8 +3,13 @@ import clsx from "clsx"
 import { Link } from "gatsby"
 import React from "react"
 import useStyles from "./header.styles"
+import { Pagelink } from "@utils/types/pagelink"
 
-const Menu = ({ links }) => {
+interface IMenu {
+  links: Array<Pagelink>
+}
+
+const Menu = ({ links }:IMenu) => {
   const classes = useStyles()
   const isCurrentPath = (pagelinkPath: string) =>
     location.pathname.includes(pagelinkPath)
