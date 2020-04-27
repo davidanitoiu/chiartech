@@ -12,10 +12,18 @@ const useStyles = makeStyles(theme => ({
     height: "100%",
   },
   projects: {
-    display: "grid",
-    gridTemplateColumns: "1fr 1fr",
-    columnGap: theme.spacing(5),
-    rowGap: `${theme.spacing(5)}px`,
+    [theme.breakpoints.up("md")]: {
+      display: "grid",
+      gridTemplateColumns: "1fr 1fr",
+      columnGap: theme.spacing(5),
+      rowGap: `${theme.spacing(5)}px`,
+    },
+    [theme.breakpoints.down("md")]: {
+      display: "flex",
+      height: "100%",
+      justifyContent: "space-evenly",
+      flexDirection: "column"
+    },
   },
   cardTitle: {
     color: theme.palette.secondary.main,
