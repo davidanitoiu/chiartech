@@ -57,7 +57,6 @@ const Default = ({ children }: Children) => {
   return (
       <div className={classes.root}>
         <CssBaseline />
-        <SEO title={title} />
         <Header className={classes.header} siteTitle={title} />
         <main className={classes.main}>{children}</main>
         <footer className={classes.footer}>
