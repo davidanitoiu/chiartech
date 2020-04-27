@@ -5,12 +5,14 @@ import useStyles from "./header.styles"
 import { Logo } from "./logo/logo"
 import usePageLinks from "@utils/hooks/static-queries/usePageLinks"
 import clsx from "clsx"
+import {useLocation} from "@reach/router"
 
 const Header = ({ siteTitle = "", ...props }) => {
   const classes = useStyles()
   const pagelinks = usePageLinks()
+  const location = useLocation()
 
-  const isCurrentPath = (path:string) => location.pathname.includes(path);
+  const isCurrentPath = (pagelinkPath:string) => location.pathname.includes(pagelinkPath)
 
   return (
     <header {...props}>
