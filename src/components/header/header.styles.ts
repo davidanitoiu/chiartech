@@ -22,7 +22,6 @@ export default makeStyles<Theme>(theme => ({
   },
   title: {
     color: theme.palette.secondary.main,
-    fontWeight: 'bold',
     textShadow: `0 0 4px ${Color(theme.palette.secondary.main).alpha(0.65)}`,
   },
   header: {
