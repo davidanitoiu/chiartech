@@ -1,10 +1,7 @@
-import SEO from "@components/seo"
-import { Container } from "@material-ui/core"
-import useMarkdownStyles from "@utils/hooks/useMarkdownStyles"
+import Markdown from "@components/markdown/markdown"
+import { MarkdownDoc } from "@utils/types/markdown"
 import { graphql } from "gatsby"
 import React from "react"
-import { MarkdownDoc } from "@utils/types/markdown"
-import Markdown from "@components/markdown/markdown"
 
 const Docs = ({ data }: MarkdownDoc) => (
   <Markdown data={data} />
