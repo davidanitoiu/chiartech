@@ -7,7 +7,7 @@
 
 import CssBaseline from "@material-ui/core/CssBaseline"
 import React, { ReactNode } from "react"
-import Header from "@components/header/header"
+import Header from "@components/header"
 import useSiteMetadata from "@utils/hooks/static-queries/useSiteMetadata"
 import useStaticBackground from "@hooks/static-queries/useStaticBackground"
 import { makeStyles } from "@material-ui/styles"
