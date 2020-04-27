@@ -24,8 +24,9 @@ const Header = ({ siteTitle = "", ...props }) => {
             </Typography>
           </Link>
           <nav className={classes.menu}>
-            {pagelinks.map(pagelink => (
+            {pagelinks.map((pagelink,i) => (
               <Typography
+              key={i}
                 variant={"h6"}
                 component={Link}
                 className={classes.menuLink}

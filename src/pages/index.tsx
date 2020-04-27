@@ -20,6 +20,8 @@ interface StyleProps {
 
 const useStyles = makeStyles(theme => ({
   root: {
+    background: `no-repeat center center fixed`,
+    backgroundSize: 'cover',
     backgroundImage: ({ fileName }: StyleProps) =>
       `linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),url(${fileName})`,
   },
@@ -53,7 +55,7 @@ const IndexPage = () => {
     <div className={classes.root}>
       <SEO title="Home" />
       <Container className={classes.container}>
-        <Logo size={128} borderWidth={9} />
+        
         <Typography className={classes.title} variant={"h1"}>
           {siteMetadata.title}
         </Typography>
@@ -61,6 +63,7 @@ const IndexPage = () => {
           className={classes.description}
           variant={"h3"}
           component={"h2"}
+          align={"center"}
         >
           {siteMetadata.description}
         </Typography>
@@ -70,7 +73,7 @@ const IndexPage = () => {
           aria-label="navigation button group"
         >
           {pagelinks.map(pagelink => (
-            <Button className={classes.pagelink} to={pagelink.path}>
+            <Button key={pagelink.title} className={classes.pagelink} to={pagelink.path}>
               {pagelink.title}
             </Button>
           ))}

@@ -19,6 +19,8 @@ interface StyleProps {
 
 const useStyles = makeStyles(theme => ({
   root: {
+    background: `no-repeat center center fixed`,
+    backgroundSize: "cover",
     backgroundImage: ({ fileName }: StyleProps) =>
       `linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),url(${fileName})`,
     margin: `0 auto`,
@@ -26,11 +28,11 @@ const useStyles = makeStyles(theme => ({
     display: "flex",
     flexDirection: "column",
     justifyContent: "space-between",
-    position: 'absolute',
+    position: "absolute",
     top: 0,
     left: 0,
     right: 0,
-    bottom: 0
+    bottom: 0,
   },
   header: {
     flex: 1,
@@ -53,17 +55,17 @@ const Default = ({ children }: Children) => {
   const classes = useStyles({ fileName: backgroundSrc })
 
   return (
-    <div className={classes.root}>
-      <CssBaseline />
-      <SEO title={title} />
-      <Header className={classes.header} siteTitle={title} />
-      <main className={classes.main}>{children}</main>
-      <footer className={classes.footer}>
-        © {new Date().getFullYear()}, Built with
-        {` `}
-        <a href="https://www.gatsbyjs.org">Gatsby</a>
-      </footer>
-    </div>
+      <div className={classes.root}>
+        <CssBaseline />
+        <SEO title={title} />
+        <Header className={classes.header} siteTitle={title} />
+        <main className={classes.main}>{children}</main>
+        <footer className={classes.footer}>
+          © {new Date().getFullYear()}, Built with
+          {` `}
+          <a href="https://www.gatsbyjs.org">Gatsby</a>
+        </footer>
+      </div>
   )
 }
 
