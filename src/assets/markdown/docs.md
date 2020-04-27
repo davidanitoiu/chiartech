@@ -1,16 +1,13 @@
 ---
-path: "/docs/first"
+title: "Docs"
+path: "/docs"
 ---
 
-# Welcome to CHIARTECH
-
-Just a regular gatsby landing page for now :)
-
-## Gatsby
+## Setting up Gatsby
 
 Set up the basic gatsby framework by following [this guide](https://www.gatsbyjs.org/docs/quick-start/)
 
-## Typescript
+## Setting up Typescript
 
 Implemented Typescript according to this [guide](https://medium.com/@whoisryosuke/adding-typescript-to-gatsby-c4a8cdcb0e7e)
 
