@@ -4,6 +4,7 @@ import { cloneDeep, mapValues } from "lodash"
 import React, { Component } from "react"
 import PipelineNodeInner from "./pipeline-components/PipelineNodeInner"
 import chartSimple from "./pipelineChart"
+import { validateLink } from "./utils/validateLink"
 
 class Pipeline extends Component {
   state = cloneDeep(chartSimple)
@@ -20,6 +21,9 @@ class Pipeline extends Component {
         callbacks={stateActions}
         Components={{
           NodeInner: PipelineNodeInner,
+        }}
+        config={{
+          validateLink,
         }}
       />
     </>
