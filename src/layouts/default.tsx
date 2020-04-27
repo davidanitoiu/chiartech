@@ -11,6 +11,7 @@ import Header from "@components/header/header"
 import useSiteMetadata from "@utils/hooks/static-queries/useSiteMetadata"
 import useStaticBackground from "@hooks/static-queries/useStaticBackground"
 import { makeStyles } from "@material-ui/styles"
+import Footer from "@components/footer"
 
 interface StyleProps {
   fileName: string
@@ -58,11 +59,7 @@ const Default = ({ children }: Children) => {
         <CssBaseline />
         <Header className={classes.header} siteTitle={title} />
         <main className={classes.main}>{children}</main>
-        <footer className={classes.footer}>
-          © {new Date().getFullYear()}, Built with
-          {` `}
-          <a href="https://www.gatsbyjs.org">Gatsby</a>
-        </footer>
+        <Footer />
       </div>
   )
 }
