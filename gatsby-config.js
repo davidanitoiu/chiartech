@@ -4,12 +4,20 @@ module.exports = {
     description: "Divert auxilliary power to IT Awesomeness",
     author: "@davidanitoiu",
     pageLinks: [{
-      title: "Docs",
-      path: "/docs"
+      title: "How To",
+      path: "/howto"
     },
     {
       title: "Playground",
       path: "/playground"
+    },
+    {
+      title: "Contact",
+      path: "/contact"
+    },
+    {
+      title: "About",
+      path: "/about",
     }]
   },
   plugins: [
@@ -43,8 +51,8 @@ module.exports = {
     {
       resolve: `gatsby-source-filesystem`,
       options: {
-        name: `docs`,
-        path: `${__dirname}/src/assets/docs`,
+        name: `markdown`,
+        path: `${__dirname}/src/assets/markdown`,
       },
     },
     `gatsby-transformer-remark`,
