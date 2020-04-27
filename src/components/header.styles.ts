@@ -13,7 +13,7 @@ export default makeStyles<Theme>(theme => ({
     paddingBottom: theme.spacing(2),
   },
   titleLink: {
-    flex: 3,
+    flex: 2,
     display: 'flex',
     flexDirection: 'row',
     textDecoration: 'none',
