@@ -37,7 +37,7 @@ const useStyles = makeStyles(theme => ({
     textShadow: `0 0 7px ${Color(theme.palette.secondary.main).alpha(0.65)}`,
   },
   description: {
-    color: theme.palette.primary.main,
+    color: theme.palette.secondary.dark,
     marginBottom: 16,
   },
   pagelink: {
