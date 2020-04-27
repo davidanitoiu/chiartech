@@ -4,10 +4,13 @@ import { AppBar, Typography, Container } from "@material-ui/core"
 import useStyles from "./header.styles"
 import { Logo } from "./logo/logo"
 import usePageLinks from "@utils/hooks/static-queries/usePageLinks"
+import clsx from "clsx"
 
 const Header = ({ siteTitle = "", ...props }) => {
   const classes = useStyles()
   const pagelinks = usePageLinks()
+
+  const isCurrentPath = (path:string) => location.pathname.includes(path);
 
   return (
     <header {...props}>
@@ -24,14 +27,20 @@ const Header = ({ siteTitle = "", ...props }) => {
             </Typography>
           </Link>
           <nav className={classes.menu}>
-            {pagelinks.map((pagelink,i) => (
+            {pagelinks.map((pagelink, i) => (
               <Typography
-              key={i}
+                key={i}
                 variant={"h6"}
                 component={Link}
-                className={classes.menuLink}
+                className={
+                  isCurrentPath(pagelink.path)
+                    ? clsx(classes.menuLink, classes.menuLinkActive)
+                    : classes.menuLink
+                }
                 to={pagelink.path}
-              >{pagelink.title}</Typography>
+              >
+                {pagelink.title}
+              </Typography>
             ))}
           </nav>
         </Container>

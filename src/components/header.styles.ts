@@ -18,6 +18,7 @@ export default makeStyles<Theme>(theme => ({
     flexDirection: 'row',
     textDecoration: 'none',
     alignItems: 'center',
+    outline: 'none!important'
   },
   title: {
     color: theme.palette.secondary.main,
@@ -44,9 +45,14 @@ export default makeStyles<Theme>(theme => ({
     justifyContent: "space-evenly",
     textShadow: `0 0 4px ${Color(theme.palette.secondary.main).alpha(0.65)}`,
     transition: "all 0.3s ease-out",
+    outline: 'none!important',
     "&:hover": {
       color: theme.palette.text.primary,
       textShadow: `0 0 4px ${Color(theme.palette.text.primary).alpha(0.65)}`,
     },
   },
+  menuLinkActive: {
+    color: theme.palette.text.primary,
+    textShadow: `0 0 4px ${Color(theme.palette.text.primary).alpha(0.65)}`,
+  }
 }))
