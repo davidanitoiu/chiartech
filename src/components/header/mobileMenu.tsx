@@ -9,6 +9,7 @@ import { makeStyles } from "@material-ui/styles"
 import Color from "color"
 import { navigate } from "gatsby"
 import React from "react"
+import MenuIcon from '@material-ui/icons/Menu';
 
 const useStyles = makeStyles<Theme>(theme => ({
   mobileMenu: {
@@ -23,6 +24,9 @@ const useStyles = makeStyles<Theme>(theme => ({
     color: theme.palette.secondary.main,
     textDecoration: "none",
   },
+  mobileMenuIcon: {
+      color: theme.palette.secondary.main
+  }
 }))
 
 const MobileMenu = ({ links }) => {
@@ -49,8 +53,9 @@ const MobileMenu = ({ links }) => {
         aria-controls={mobileMenuId}
         aria-haspopup="true"
         onClick={handleMobileMenuOpen}
+        color={"secondary"}
       >
-        <div>☰</div>
+        <MenuIcon/>
       </IconButton>
       <Menu
         elevation={0}
