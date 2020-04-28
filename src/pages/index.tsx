@@ -36,11 +36,11 @@ const useStyles = makeStyles(theme => ({
     flexDirection: "column",
   },
   title: {
-    color: theme.palette.secondary.main,
-    textShadow: `0 0 7px ${Color(theme.palette.secondary.main).alpha(0.65)}`,
+    color: theme.palette.primary.main,
+    textShadow: `0 0 7px ${Color(theme.palette.primary.main).alpha(0.65)}`,
   },
   description: {
-    color: theme.palette.secondary.dark,
+    color: theme.palette.primary.dark,
     marginBottom: 16,
   },
   pagelink: {
@@ -72,7 +72,7 @@ const IndexPage = () => {
           {siteMetadata.description}
         </Typography>
         <ButtonGroup
-          color="secondary"
+          color="primary"
           fullWidth={true}
           aria-label="navigation button group"
           orientation={greaterThanSm ? "horizontal" : "vertical"}

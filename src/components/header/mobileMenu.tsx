@@ -15,18 +15,18 @@ import { Pagelink } from "@utils/types/pagelink"
 const useStyles = makeStyles<Theme>(theme => ({
   mobileMenu: {
     "& .MuiPaper-root": {
-      backgroundColor: `${Color(theme.palette.secondary.main)
+      backgroundColor: `${Color(theme.palette.primary.main)
         .darken(0.95)
         .alpha(0.95)}`,
-      border: `1px solid ${theme.palette.secondary.main}`,
+      border: `1px solid ${theme.palette.primary.main}`,
     },
   },
   mobileMenuLink: {
-    color: theme.palette.secondary.main,
+    color: theme.palette.primary.main,
     textDecoration: "none",
   },
   mobileMenuIcon: {
-      color: theme.palette.secondary.main
+      color: theme.palette.primary.main
   }
 }))
 
@@ -58,7 +58,7 @@ const MobileMenu = ({ links }:IMobileMenu) => {
         aria-controls={mobileMenuId}
         aria-haspopup="true"
         onClick={handleMobileMenuOpen}
-        color={"secondary"}
+        color={"primary"}
       >
         <MenuIcon/>
       </IconButton>

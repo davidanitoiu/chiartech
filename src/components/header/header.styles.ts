@@ -6,9 +6,9 @@ export default makeStyles<Theme>(theme => ({
     flexGrow: 1,
   },
   appBar: {
-    background: `${Color(theme.palette.secondary.main).darken(0.95).alpha(0.65)}`,
+    background: `${Color(theme.palette.primary.main).darken(0.95).alpha(0.65)}`,
     boxShadow: "none",
-    borderBottom: `4px solid ${theme.palette.secondary.main}`,
+    borderBottom: `4px solid ${theme.palette.primary.main}`,
     paddingTop: theme.spacing(2),
     paddingBottom: theme.spacing(2),
   },
@@ -22,8 +22,8 @@ export default makeStyles<Theme>(theme => ({
   },
   title: {
     fontFamily: "Electrolize",
-    color: theme.palette.secondary.main,
-    textShadow: `0 0 4px ${Color(theme.palette.secondary.main).alpha(0.65)}`,
+    color: theme.palette.primary.main,
+    textShadow: `0 0 4px ${Color(theme.palette.primary.main).alpha(0.65)}`,
   },
   header: {
     display: "flex",
@@ -41,9 +41,9 @@ export default makeStyles<Theme>(theme => ({
     flex: 1,
     textDecoration: "none",
     textTransform: 'capitalize',
-    color: theme.palette.secondary.main,
+    color: theme.palette.primary.main,
     justifyContent: "space-evenly",
-    textShadow: `0 0 4px ${Color(theme.palette.secondary.main).alpha(0.65)}`,
+    textShadow: `0 0 4px ${Color(theme.palette.primary.main).alpha(0.65)}`,
     transition: "all 0.3s ease-out",
     outline: 'none!important',
     "&:hover": {

@@ -26,17 +26,17 @@ const useStyles = makeStyles(theme => ({
     },
   },
   cardTitle: {
-    color: theme.palette.secondary.main,
+    color: theme.palette.primary.main,
   },
   cardSubheader: {
-    color: `${Color(theme.palette.secondary.main).desaturate(0.35)}`,
+    color: `${Color(theme.palette.primary.main).desaturate(0.35)}`,
   },
   description: {
-    color: `${Color(theme.palette.secondary.dark).desaturate(0.35)}`,
+    color: `${Color(theme.palette.primary.dark).desaturate(0.35)}`,
     transition: ".3s ease-out",
   },
   card: {
-    background: `${Color(theme.palette.secondary.main)
+    background: `${Color(theme.palette.primary.main)
       .darken(0.95)
       .alpha(0.6)}`,
     border: `2px solid ${theme.palette.primary.main}`,
@@ -51,7 +51,7 @@ const useStyles = makeStyles(theme => ({
     justifyContent: "flex-end",
   },
   cardButton: {
-    color: theme.palette.secondary.main,
+    color: theme.palette.primary.main,
     "&:hover": {
       color: theme.palette.common.white,
     },

@@ -11,21 +11,21 @@ export default makeStyles(theme => ({
   },
   markdown: {
     overflowY: "scroll",
-    color: `${Color(theme.palette.secondary.main).desaturate(0.35)}`,
+    color: `${Color(theme.palette.primary.main).desaturate(0.35)}`,
     [theme.breakpoints.up('sm')]: {
       borderImage: `url(${svgBorder}) 50 50`,
       boxSizing: 'border-box',
       borderStyle: 'inset',
       borderWidth: 20,
-      background: `${Color(theme.palette.secondary.main).darken(0.95).alpha(0.85)}`,
+      background: `${Color(theme.palette.primary.main).darken(0.95).alpha(0.85)}`,
     },
     [theme.breakpoints.down('sm')]: {
       padding: theme.spacing(1),
-      background: `${Color(theme.palette.secondary.main).darken(0.95).alpha(0.65)}`,
+      background: `${Color(theme.palette.primary.main).darken(0.95).alpha(0.65)}`,
       borderRadius: theme.shape.borderRadius
     },
     "& > h1, h2,h3, h4, h5, h6, a": {
-      color: theme.palette.secondary.main,
+      color: theme.palette.primary.main,
     },
     "& a": {
       fontWeight: 'bold',
@@ -36,7 +36,7 @@ export default makeStyles(theme => ({
       }
     },
     "& pre": {
-      backgroundColor: `${Color(theme.palette.secondary.dark).desaturate(0.7)}`,
+      backgroundColor: `${Color(theme.palette.primary.dark).desaturate(0.7)}`,
       width: 'fit-content',
       padding: theme.spacing(1, 2),
       color: theme.palette.text.primary,

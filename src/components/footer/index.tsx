@@ -5,7 +5,7 @@ import Color from "color"
 
 const useStyles = makeStyles<Theme>(theme => ({
   footer: {
-    color: `${Color(theme.palette.secondary.main).desaturate(0.35)}`,
+    color: `${Color(theme.palette.primary.main).desaturate(0.35)}`,
     "& a": {
         fontWeight: 'bold',
         textDecoration: 'none',
@@ -27,7 +27,7 @@ const Footer = () => {
         © {new Date().getFullYear()}, Built with{" "}
         <Link
           variant={"subtitle2"}
-          color={"secondary"}
+          color={"primary"}
           href="https://www.gatsbyjs.org"
         >
           Gatsby
