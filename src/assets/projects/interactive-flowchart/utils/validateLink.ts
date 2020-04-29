@@ -1,4 +1,4 @@
-import { ValidateLink } from "./types/pipeline"
+import { ValidateLink } from "./pipeline-types"
 import { map, omit, isEqual } from "lodash"
 
 export const validateLink = ({
