@@ -12,7 +12,7 @@ export const store = configureStore(
         middleware: getDefaultMiddleware({
             serializableCheck: false //required. pipeline actions are non-serializable
         }),
-        devTools: window.location.hostname === 'localhost'
+        devTools: true
     });
 
 export type PipelineState = ReturnType<typeof store.getState>
