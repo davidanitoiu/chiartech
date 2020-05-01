@@ -12,11 +12,11 @@ const useStyles = makeStyles<Theme>(theme => ({
 
 const PipelineNodeInner = ({ node }: INodeInnerDefaultProps) => {
   const classes = useStyles()
-  const { title } = node.properties
+  const { name } = node.properties
 
   return (
     <div className={classes.pipelineCard}>
-      <p>{title}</p>
+      <p>{name}</p>
     </div>
   )
 }

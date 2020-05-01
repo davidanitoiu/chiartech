@@ -28,7 +28,7 @@ export const SidebarItem = ({ type, ports, properties }: ISidebarItemProps) => {
         )
       }}
     >
-      <ListItemText primary={properties.title} />
+      <ListItemText primary={properties.name} />
     </ListItem>
   )
 }

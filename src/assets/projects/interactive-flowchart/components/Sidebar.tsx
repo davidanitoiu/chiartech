@@ -1,7 +1,8 @@
-import { Drawer, List, ListItem, ListItemText } from "@material-ui/core"
+import { Checkbox, Drawer, List, ListItem, ListItemText } from "@material-ui/core"
 import { IChart, INode } from "@mrblenny/react-flow-chart"
 import { difference, isEmpty, map } from "lodash"
 import React, { useMemo } from "react"
+import { environments } from "../utils"
 import { SidebarItem } from "./SidebarItem"
 
 type Sidebar = {
@@ -9,9 +10,7 @@ type Sidebar = {
 }
 
 function Sidebar({ chart }: Sidebar) {
-  const environments = ["Dev", "Acc", "Test", "Prod"]
   const { nodes, selected } = chart
-
   const diff = useMemo(() => {
     const nodeTitles = map(nodes, (node: INode) => node.properties.title)
     return difference(environments, nodeTitles)
@@ -31,6 +30,15 @@ function Sidebar({ chart }: Sidebar) {
     },
   }
 
+  const [state, setState] = React.useState({
+    autoDeploy: false,
+    underChangeControl: false,
+  })
+
+  const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+    setState({ ...state, [event.target.name]: event.target.checked })
+  }
+
   return (
     <Drawer variant="permanent" anchor="right">
       {isEmpty(selected) ? (
@@ -39,7 +47,7 @@ function Sidebar({ chart }: Sidebar) {
             <SidebarItem
               key={i}
               properties={{
-                title: environment,
+                ...environment,
               }}
               {...sidebarItemProps}
             />
@@ -49,7 +57,41 @@ function Sidebar({ chart }: Sidebar) {
         <div>
           <List>
             <ListItem>
-              <ListItemText primary={"Title"} secondary={nodes[selected.id!].properties.title}/>
+              <ListItemText
+                primary={"Name"}
+                secondary={nodes[selected.id!].properties.name}
+              />
+            </ListItem>
+            <ListItem>
+              <ListItemText
+                primary={"OS"}
+                secondary={nodes[selected.id!].properties.os}
+              />
+            </ListItem>
+            <ListItem>
+              <ListItemText
+                primary={"Kernel"}
+                secondary={nodes[selected.id!].properties.kernel}
+              />
+            </ListItem>
+            <ListItem>
+              <ListItemText
+                primary={"Host"}
+                secondary={nodes[selected.id!].properties.host}
+              />
+            </ListItem>
+            <ListItem>
+              <ListItemText
+                primary={"Auto Deploy"}
+                secondary={
+                  <Checkbox
+                    checked={state.autoDeploy}
+                    onChange={handleChange}
+                    name="autoDeploy"
+                    color="primary"
+                  />
+                }
+              />
             </ListItem>
           </List>
         </div>
