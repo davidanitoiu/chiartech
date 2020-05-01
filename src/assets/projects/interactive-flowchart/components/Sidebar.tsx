@@ -12,7 +12,7 @@ type Sidebar = {
 function Sidebar({ chart }: Sidebar) {
   const { nodes, selected } = chart
   const diff = useMemo(() => {
-    const nodeTitles = map(nodes, (node: INode) => node.properties.title)
+    const nodeTitles = map(nodes, (node: INode) => node.properties.name)
     return difference(environments, nodeTitles)
   }, [nodes])
 

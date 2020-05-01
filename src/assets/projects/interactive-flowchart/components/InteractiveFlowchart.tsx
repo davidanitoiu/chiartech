@@ -13,7 +13,7 @@ const InteractiveFlowchart = () => {
 
   const callbacks = {
     ...chartCallbacks,
-    onCanvasDrag: () => {}
+    onDragCanvas: () => {}
   }
 
   return (
