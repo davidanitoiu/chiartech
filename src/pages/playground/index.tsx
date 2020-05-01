@@ -62,7 +62,7 @@ const projects = [
   {
     title: "Interactive Flowchart",
     description: "An implementation of an interactive flow chart with Redux",
-    target: "/playground/pipeline",
+    target: "/playground/flowchart",
   },
   {
     title: "Date formatter",
