@@ -1,5 +1,9 @@
-import { ValidateLink } from "./pipeline-types"
 import { map, omit, isEqual } from "lodash"
+import { IOnLinkCompleteInput, IChart } from "@mrblenny/react-flow-chart"
+
+export interface ValidateLink extends IOnLinkCompleteInput {
+    chart: IChart
+}
 
 export const validateLink = ({
     fromNodeId,

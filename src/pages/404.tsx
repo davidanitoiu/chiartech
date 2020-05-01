@@ -22,7 +22,7 @@ const fourOhFours = [
   `There is no place like home!`,
   `The Matrix has you!`,
   `A continuing mission to explore strange new worlds`,
-  `Rule of Acquisition #25`,
+  `Rule of Acquisition #25: There’s always a way out`,
   `Ignorance is bliss`,
   `Follow the white rabbit`,
   `Power overwhelming`,

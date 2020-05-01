@@ -1,31 +1,37 @@
 import PipelineNodeInner from "@assets/projects/interactive-flowchart/components/PipelineNodeInner"
-import { validateLink } from "@assets/projects/interactive-flowchart/utils"
-import { actions, FlowChart } from "@mrblenny/react-flow-chart"
-import { mapValues } from "lodash"
+import {
+  useChart,
+  validateLink,
+} from "@assets/projects/interactive-flowchart/utils"
+import { FlowChart } from "@mrblenny/react-flow-chart"
 import React from "react"
-import { useSelector, useDispatch } from "react-redux"
-import { executeChartAction } from "../utils/reducers/pipeline"
+import { Container } from "@material-ui/core"
+import Sidebar from "./Sidebar"
 
 const InteractiveFlowchart = () => {
-    const dispatch = useDispatch();
-  const {chart} = useSelector(state => state.pipeline);
+  const [chart, chartCallbacks] = useChart()
 
-  const callbacks = mapValues(actions, (action: any) =>
-  (...args: any) => dispatch(executeChartAction({action: action(...args)})))  as typeof actions;
+  const callbacks = {
+    ...chartCallbacks,
+    onCanvasDrag: () => {}
+  }
 
   return (
     <>
-      <FlowChart
-        chart={chart}
-        callbacks={callbacks}
-        Components={{
-          NodeInner: PipelineNodeInner,
-        }}
-        config={{
-          snapToGrid: true,
-          validateLink,
-        }}
-      />
+      <Container>
+        <FlowChart
+          chart={chart}
+          callbacks={callbacks}
+          Components={{
+            NodeInner: PipelineNodeInner,
+          }}
+          config={{
+            snapToGrid: true,
+            validateLink,
+          }}
+        />
+        <Sidebar chart={chart} />
+      </Container>
     </>
   )
 }

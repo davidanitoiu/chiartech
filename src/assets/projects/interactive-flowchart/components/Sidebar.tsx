@@ -1,24 +1,21 @@
-import React, { useEffect, useState } from "react"
-import styled from "styled-components"
+import { Drawer, List, ListItem, ListItemText } from "@material-ui/core"
+import { IChart, INode } from "@mrblenny/react-flow-chart"
+import { difference, isEmpty, map } from "lodash"
+import React, { useMemo } from "react"
 import { SidebarItem } from "./SidebarItem"
-import { useSelector } from "react-redux"
-import { map, difference } from "lodash"
-import { Drawer, List } from "@material-ui/core"
-import { makeStyles } from "@material-ui/styles"
 
-function Sidebar() {
-  const environments = useSelector(state => state.pipeline.environments)
-  const chartNodes = useSelector(state => state.pipeline.chart.nodes)
+type Sidebar = {
+  chart: IChart
+}
 
-  const [diff, setDiff] = useState<Array<string>>([])
+function Sidebar({ chart }: Sidebar) {
+  const environments = ["Dev", "Acc", "Test", "Prod"]
+  const { nodes, selected } = chart
 
-  useEffect(() => {
-    const nodeTitles = map(chartNodes, node => {
-      return node.properties.title
-    })
-
-    setDiff(difference(environments, nodeTitles))
-  }, [chartNodes])
+  const diff = useMemo(() => {
+    const nodeTitles = map(nodes, (node: INode) => node.properties.title)
+    return difference(environments, nodeTitles)
+  }, [nodes])
 
   const sidebarItemProps = {
     type: "input-output",
@@ -36,17 +33,27 @@ function Sidebar() {
 
   return (
     <Drawer variant="permanent" anchor="right">
-      <List>
-        {diff.map((environment, i) => (
-          <SidebarItem
-            key={i}
-            properties={{
-              title: environment,
-            }}
-            {...sidebarItemProps}
-          />
-        ))}
-      </List>
+      {isEmpty(selected) ? (
+        <List>
+          {diff.map((environment, i) => (
+            <SidebarItem
+              key={i}
+              properties={{
+                title: environment,
+              }}
+              {...sidebarItemProps}
+            />
+          ))}
+        </List>
+      ) : (
+        <div>
+          <List>
+            <ListItem>
+              <ListItemText primary={"Title"} secondary={nodes[selected.id!].properties.title}/>
+            </ListItem>
+          </List>
+        </div>
+      )}
     </Drawer>
   )
 }
