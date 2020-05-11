@@ -9,7 +9,7 @@ import { makeStyles } from "@material-ui/styles"
 import Color from "color"
 import { navigate } from "gatsby"
 import React from "react"
-import MenuIcon from '@material-ui/icons/Menu';
+import {MdMenu as MenuIcon} from 'react-icons/md';
 import { Pagelink } from "@utils/types/pagelink"
 
 const useStyles = makeStyles<Theme>(theme => ({
