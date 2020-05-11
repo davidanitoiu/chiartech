@@ -1,87 +1,34 @@
-import React from "react"
 import SEO from "@components/seo"
-import { makeStyles, Container, Card, CardHeader } from "@material-ui/core"
-import Color from "color"
-import { navigate } from "gatsby"
+import { Card, CardContent, CardHeader, Container, IconButton, Typography } from "@material-ui/core"
+import { has } from "lodash"
+import React from "react"
+import { FaPlayCircle } from "react-icons/fa"
+import { GoMarkGithub } from "react-icons/go"
+import { useStyles } from "./playground.styles"
+import projects from "@utils/projects.json"
 
-const useStyles = makeStyles(theme => ({
-  root: {
-    display: "flex",
-    justifyContent: "center",
-    alignItems: "center",
-    height: "100%",
-  },
-  projects: {
-    [theme.breakpoints.up("md")]: {
-      display: "grid",
-      gridTemplateColumns: "1fr 1fr",
-      columnGap: theme.spacing(5),
-      rowGap: `${theme.spacing(5)}px`,
-    },
-    [theme.breakpoints.down("md")]: {
-      display: "flex",
-      height: "100%",
-      justifyContent: "space-evenly",
-      flexDirection: "column",
-    },
-  },
-  cardTitle: {
-    color: theme.palette.primary.main,
-  },
-  cardSubheader: {
-    color: `${Color(theme.palette.primary.main).desaturate(0.35)}`,
-  },
-  description: {
-    color: `${Color(theme.palette.primary.dark).desaturate(0.35)}`,
-    transition: ".3s ease-out",
-  },
-  card: {
-    background: `${Color(theme.palette.primary.main)
-      .darken(0.95)
-      .alpha(0.6)}`,
-    border: `2px solid ${theme.palette.primary.main}`,
-    transition: ".3s ease-out",
-    cursor: "pointer",
-    "&:hover": {
-      border: `2px solid ${theme.palette.common.white}`,
-    },
-  },
-  cardActions: {
-    display: "flex",
-    justifyContent: "flex-end",
-  },
-  cardButton: {
-    color: theme.palette.primary.main,
-    "&:hover": {
-      color: theme.palette.common.white,
-    },
-  },
-}))
-
-interface Project {
+interface GithubProject {
   title: string
   description: string
-  target?: string
+  language: string
+  github: string
+  demo: string
 }
 
-const projects: Array<Project> = [
-  {
-    title: "Interactive Flowchart",
-    description: "An implementation of an interactive flow chart with Redux",
-  },
-  {
-    title: "Date formatter",
-    description: "A tool that returns a dateformat based on the entered date",
-  },
-  {
-    title: "Project Euler",
-    description: "Various project euler problems including their test cases",
-  },
-  {
-    title: "Misc",
-    description: "Tiny pet programs, inspired by various coders around the web",
-  },
-]
+const getGithubUrl = (projectId: string) =>
+  `https://github.com/davidanitoiu/${projectId}`
+const getCodeSandboxUrl = (projectId: string) =>
+  `https://codesandbox.io/embed/github/davidanitoiu/${projectId}?hidenavigation=1&theme=dark&view=preview`
+
+const openLink = (url: string) => window.open(url)
+
+const githubProjects: Array<GithubProject> = projects.map(project => ({
+  title: project.title,
+  description: project.description,
+  language: project.language,
+  github: getGithubUrl(project.projectId),
+  demo: getCodeSandboxUrl(project.projectId)
+}))
 
 const Playground = () => {
   const classes = useStyles()
@@ -91,19 +38,43 @@ const Playground = () => {
       <SEO title="Playground" />
       <Container className={classes.root}>
         <div className={classes.projects}>
-          {projects.map((project, i) => (
+          {githubProjects.map((project, i) => (
             <Card
               key={i}
               variant={"outlined"}
               className={classes.card}
-              onClick={() => !!project.target && navigate(project.target)}
             >
               <CardHeader
                 title={project.title}
                 titleTypographyProps={{ className: classes.cardTitle }}
                 subheader={project.description}
                 subheaderTypographyProps={{ className: classes.cardSubheader }}
+                action={
+                  <>
+                    {has(project, "github") && (
+                      <IconButton
+                        aria-label="github"
+                        color={"primary"}
+                        onClick={() => openLink(project.github)}
+                      >
+                        <GoMarkGithub />
+                      </IconButton>
+                    )}
+                    {has(project, "demo") && (
+                      <IconButton
+                        aria-label="demo"
+                        color={"primary"}
+                        onClick={() => openLink(project.demo)}
+                      >
+                        <FaPlayCircle />
+                      </IconButton>
+                    )}
+                  </>
+                }
               />
+              <CardContent className={classes.cardContent}>
+                <Typography variant={"body1"}>{project.language}</Typography>
+              </CardContent>
             </Card>
           ))}
         </div>
