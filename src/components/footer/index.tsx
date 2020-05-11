@@ -1,11 +1,12 @@
-import React from "react"
-import { makeStyles,Theme } from "@material-ui/styles"
-import { Typography, Link } from "@material-ui/core"
+import { Link, makeStyles, Theme, Typography } from "@material-ui/core"
 import Color from "color"
+import React from "react"
 
 const useStyles = makeStyles<Theme>(theme => ({
   footer: {
     color: `${Color(theme.palette.primary.main).desaturate(0.35)}`,
+    textAlign: "center",
+    marginBottom: theme.spacing(1),
     "& a": {
         fontWeight: 'bold',
         textDecoration: 'none',
