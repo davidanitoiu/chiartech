@@ -12,10 +12,6 @@ module.exports = {
       path: "/playground"
     },
     {
-      title: "Contact",
-      path: "/contact"
-    },
-    {
       title: "About",
       path: "/about",
     }]

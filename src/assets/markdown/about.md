@@ -8,3 +8,5 @@ path: "/about"
 Visionary stuff about how awesome and unique we are.
 
 You must totally love us, contact us and tell your friends about this page!
+
+mail: [contact@chiartech.com](contact@chiartech.com)
