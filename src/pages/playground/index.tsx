@@ -22,7 +22,7 @@ const useStyles = makeStyles(theme => ({
       display: "flex",
       height: "100%",
       justifyContent: "space-evenly",
-      flexDirection: "column"
+      flexDirection: "column",
     },
   },
   cardTitle: {
@@ -58,26 +58,28 @@ const useStyles = makeStyles(theme => ({
   },
 }))
 
-const projects = [
+interface Project {
+  title: string
+  description: string
+  target?: string
+}
+
+const projects: Array<Project> = [
   {
     title: "Interactive Flowchart",
     description: "An implementation of an interactive flow chart with Redux",
-    target: "/playground/flowchart",
   },
   {
     title: "Date formatter",
     description: "A tool that returns a dateformat based on the entered date",
-    target: "/playground/dateformatter",
   },
   {
     title: "Project Euler",
     description: "Various project euler problems including their test cases",
-    target: "/playground/projecteuler",
   },
   {
     title: "Misc",
     description: "Tiny pet programs, inspired by various coders around the web",
-    target: "/playground/misc",
   },
 ]
 
@@ -94,7 +96,7 @@ const Playground = () => {
               key={i}
               variant={"outlined"}
               className={classes.card}
-              onClick={() => navigate(project.target)}
+              onClick={() => !!project.target && navigate(project.target)}
             >
               <CardHeader
                 title={project.title}
