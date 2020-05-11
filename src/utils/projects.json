@@ -1,0 +1,8 @@
+[
+  {
+    "title": "Deployment Pipeline",
+    "projectId": "deployment-pipeline",
+    "description": "An implementation of an interactive flow chart with Redux",
+    "language": "TypeScript"
+  }
+]
