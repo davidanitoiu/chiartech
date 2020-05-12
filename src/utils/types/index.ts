@@ -8,3 +8,9 @@ export interface MarkdownDoc {
     }
   }
 }
+
+export interface Pagelink {
+  title: string;
+  path: string;
+}
+

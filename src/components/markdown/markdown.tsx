@@ -1,7 +1,7 @@
 import SEO from "@components/seo"
 import { Container } from "@material-ui/core"
 import React from "react"
-import { MarkdownDoc } from "@utils/types/markdown"
+import { MarkdownDoc } from "@utils/types"
 import useStyles from "./markdown.styles"
 
 const Markdown = ({data}: MarkdownDoc) => {
