@@ -1,5 +1,0 @@
----
-title: "AboutMe"
-path: "/aboutMe"
----
-
