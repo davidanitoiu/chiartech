@@ -5,13 +5,14 @@
  * See: https://www.gatsbyjs.org/docs/use-static-query/
  */
 
-import CssBaseline from "@material-ui/core/CssBaseline"
-import React, { ReactNode } from "react"
-import Header from "@components/header"
-import useSiteMetadata from "@utils/hooks/static-queries/useSiteMetadata"
-import useStaticBackground from "@hooks/static-queries/useStaticBackground"
-import { makeStyles } from "@material-ui/styles"
 import Footer from "@components/footer"
+import Header from "@components/header"
+import useStaticBackground from "@hooks/static-queries/useStaticBackground"
+import CssBaseline from "@material-ui/core/CssBaseline"
+import { makeStyles } from "@material-ui/styles"
+import useSiteMetadata from "@utils/hooks/static-queries/useSiteMetadata"
+import BackgroundImage from 'gatsby-background-image'
+import React, { ReactNode } from "react"
 
 interface StyleProps {
   fileName: string
@@ -21,10 +22,9 @@ const useStyles = makeStyles(theme => ({
   root: {
     background: `no-repeat center center fixed`,
     backgroundSize: "cover",
-    backgroundImage: ({ fileName }: StyleProps) =>
-      `linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),url(${fileName})`,
     margin: `0 auto`,
     minHeight: `100vh`,
+    width: "100%",
     display: "flex",
     flexDirection: "column",
     justifyContent: "space-between",
@@ -54,13 +54,20 @@ const Default = ({ children }: Children) => {
   const { title } = useSiteMetadata()
   const classes = useStyles({ fileName: backgroundSrc })
 
+
+
   return (
-      <div className={classes.root}>
+      <BackgroundImage
+        backgroundColor={`#000`}
+        Tag={"section"}
+        fluid={backgroundSrc}
+        className={classes.root}
+      >
         <CssBaseline />
         <Header className={classes.header} siteTitle={title} />
         <main className={classes.main}>{children}</main>
         <Footer />
-      </div>
+      </BackgroundImage>
   )
 }
 
